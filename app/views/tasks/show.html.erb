@@ -1,7 +1,13 @@
-<h1><%= @task.title %></h1>
-<p><%= @task.details %></p>
-<%= link_to "Back to index", tasks_path %>
-<%= link_to "Delete #{@task.title}",
-            task_path(@task),
-            method: :delete,
-            data: { confirm: "Are you sure to delete this task?" } %>
+<div class="container">
+  <h1><%= @task.title %></h1>
+  <p><%= @task.details %></p>
+  <%= link_to "Back to index", tasks_path,
+              class: "btn btn-primary p-2 m-3"
+  %><br>
+  <%= link_to "Delete #{@task.title}",
+              task_path(@task),
+              method: :delete,
+              data: { confirm: "Are you sure to delete this task?" },
+              class: "far fa-trash-alt btn btn-danger p-2"
+              %>
+</div>
