@@ -2,18 +2,22 @@
   <h1 class="mt-4 mb-4">Welcome, pelo!</h1>
   <h2>Here are your tasks</h2>
   <ul>
-    <% @tasks.each do |task| %>
-      <li class="mb-4" >
-      <i class="far <%= task.completed ? 'fa-check-square' : 'fa-square' %>"></i>
-      <%= link_to task.title, task_path(task) %><br>
-      <%= link_to "Delete",
-                  task_path(task),
-                method: :delete,
-                data: { confirm: "Are you sure to delete this task?" },
-                class: "far fa-trash-alt btn btn-danger p-2 mt-2"
-                %>
-      <% end %>
-      </li>
+    <div class="row">
+      <% @tasks.each do |task| %>
+        <div class="card p-2 col-4 m-4">
+          <li class="mb-4" >
+          <i class="far <%= task.completed ? 'fa-check-square' : 'fa-square' %>"></i>
+          <%= link_to task.title, task_path(task) %><br>
+          <%= link_to "",
+                      task_path(task),
+                    method: :delete,
+                    data: { confirm: "Are you sure to delete this task?" },
+                    class: "far fa-trash-alt btn btn-danger p-2 mt-2"
+                    %>
+        </div>
+        <% end %>
+        </li>
+      </div>
   </ul>
   <%= link_to "Create task", new_task_path, class: "btn btn-primary" %>
 </div>
