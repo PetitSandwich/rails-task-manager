@@ -1,0 +1,8 @@
+<h1>Welcome, pelo!</h1>
+<h2>Here are your tasks</h2>
+<ul>
+  <% @tasks.each do |task| %>
+    <li><%= link_to task.title, task_path(task) %></li>
+  <% end %>
+</ul>
+<%= link_to "Create task", newtask_path %>
